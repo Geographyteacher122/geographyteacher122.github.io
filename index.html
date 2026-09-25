@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#0b2638">
+<title>Pixel Map — سلطنة عُمان</title>
+<style>
+:root{
+  --navy:#0b2638; --deep:#0d3b4f; --sea:#1188a8; --sky:#dff4f7;
+  --cream:#fbf7ef; --panel:#ffffff; --line:#dbe4e8; --muted:#6b7c86;
+  --gold:#dba84d; --text:#18303b; --success:#168c6a; --danger:#c74b4b;
+  --shadow:0 14px 40px rgba(11,38,56,.12);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:"Tahoma","Segoe UI",Arial,sans-serif;background:var(--cream);color:var(--text)}
+button,input{font:inherit}
+button{cursor:pointer}
+.app{height:100%;display:grid;grid-template-columns:390px 1fr;direction:ltr;overflow:hidden}
+.sidebar{direction:rtl;background:rgba(255,255,255,.96);border-left:1px solid var(--line);border-right:0;overflow:auto;padding:20px 18px 28px;box-shadow:var(--shadow);z-index:5}
+.brand{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+.brandMark{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--sea));display:grid;place-items:center;color:#fff;font-size:24px;box-shadow:0 8px 20px rgba(17,136,168,.22)}
+.brand h1{font-size:19px;margin:0 0 4px;font-weight:800}.brand p{font-size:12px;margin:0;color:var(--muted)}
+.authorCredit{
+  margin:-6px 0 14px;
+  padding:10px 12px;
+  border:1px solid #eadfc9;
+  border-radius:12px;
+  background:linear-gradient(135deg,#fffaf0,#f8f2e7);
+  color:#6f5731;
+  font-size:11px;
+  line-height:1.7;
+  font-weight:700;
+  text-align:center;
+  box-shadow:0 6px 16px rgba(80,60,30,.06);
+}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px}
+.cardTitle{font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;color:var(--navy)}
+.badge{font-size:11px;padding:5px 8px;border-radius:999px;background:#eef7f9;color:var(--sea);border:1px solid #cfe9ee}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.row.three{grid-template-columns:1fr 1fr 1fr}
+.field{margin-bottom:10px}.field:last-child{margin-bottom:0}.field label{font-size:11px;color:var(--muted);display:block;margin-bottom:6px}
+select,.textInput,input[type="number"]{width:100%;height:38px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--text);padding:0 10px;outline:none}
+select:focus,.textInput:focus,input[type="number"]:focus{border-color:#80c9d7;box-shadow:0 0 0 3px rgba(17,136,168,.1)}
+.rangeWrap{display:grid;grid-template-columns:1fr 62px;gap:8px;align-items:center}.rangeWrap input[type=range]{width:100%;accent-color:var(--sea)}
+.numberPill{height:38px;border:1px solid var(--line);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:12px;background:#fafcfc}
+.paletteInput{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:11px;height:38px;padding:4px 7px;background:#fff}.paletteInput input[type=color]{border:0;padding:0;width:31px;height:29px;background:transparent}
+.segment{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.segBtn{height:38px;border:1px solid var(--line);border-radius:10px;background:#fff;color:#51636d;transition:.2s}.segBtn.active{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 6px 14px rgba(11,38,56,.16)}
+.toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:4px}.switch{position:relative;width:42px;height:24px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;inset:0;background:#dfe8eb;border-radius:24px;transition:.2s}.slider:before{content:"";position:absolute;height:18px;width:18px;left:3px;top:3px;background:#fff;border-radius:50%;box-shadow:0 2px 5px rgba(0,0,0,.15);transition:.2s}.switch input:checked + .slider{background:var(--sea)}.switch input:checked + .slider:before{transform:translateX(18px)}
+.polyTools{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:9px}.toolBtn{height:35px;border:1px solid var(--line);background:#fff;border-radius:10px;font-size:12px;color:var(--navy)}
+.polyList{max-height:250px;overflow:auto;border-top:1px solid #eef2f4;margin-top:10px;padding-top:8px}.polyItem{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:7px 2px;border-bottom:1px solid #f1f4f5}.polyItem:last-child{border-bottom:0}.polyItem label{display:flex;gap:8px;align-items:center;min-width:0}.polyName{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.polyColor{width:26px;height:26px;border:0;padding:0;background:transparent}.polyColor input{width:26px;height:26px;border:0;padding:0;background:transparent}.mini{font-size:10px;color:var(--muted)}
+.primary{width:100%;height:46px;border:0;border-radius:13px;background:linear-gradient(135deg,var(--navy),var(--deep));color:#fff;font-weight:800;box-shadow:0 10px 24px rgba(11,38,56,.22);margin-top:4px}.primary:hover{filter:brightness(1.05)}
+.exportRow{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:9px}.exportBtn{height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;font-size:12px}.exportBtn:hover{border-color:#afdbe3;background:#f8fdfe}
+.resetBtn{width:100%;height:38px;margin-top:8px;border:1px dashed #b9cbd1;background:#fcfefe;border-radius:10px;color:#5b6f78;font-size:12px}
+.hint{font-size:11px;line-height:1.7;color:var(--muted);margin:9px 2px 0}.source{font-size:10px;color:#81919a;line-height:1.6;margin-top:12px}
+.stage{direction:rtl;position:relative;min-width:0;display:flex;flex-direction:column;overflow:hidden;background:radial-gradient(circle at 50% 0%,#edfafd 0%,#eef6f7 48%,#e9efee 100%)}
+.topbar{height:74px;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative;z-index:4}.titleBlock h2{margin:0;font-size:20px;color:var(--navy)}.titleBlock p{margin:4px 0 0;color:var(--muted);font-size:11px}.stats{display:flex;gap:8px}.stat{padding:9px 12px;border-radius:12px;background:rgba(255,255,255,.82);border:1px solid var(--line);min-width:92px}.stat strong{display:block;font-size:14px;color:var(--navy)}.stat span{font-size:9px;color:var(--muted)}
+.mapWrap{position:relative;flex:1;min-height:0;margin:0 18px 18px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(160deg,#f7fcfb,#ecf6f5);box-shadow:var(--shadow);overflow:hidden}
+.mapCanvas{position:absolute;inset:0;touch-action:none;cursor:grab}.mapCanvas.dragging{cursor:grabbing}.mapBg{position:absolute;inset:0;background-image:linear-gradient(rgba(17,136,168,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(17,136,168,.055) 1px,transparent 1px);background-size:32px 32px;opacity:.45;pointer-events:none}
+.mapTools{position:absolute;top:14px;left:14px;display:flex;flex-direction:column;gap:7px;z-index:3}.mapTool{width:39px;height:39px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.92);font-weight:800;color:var(--navy);box-shadow:0 7px 15px rgba(11,38,56,.1)}
+.tooltip{position:absolute;pointer-events:none;min-width:170px;padding:10px 12px;background:rgba(11,38,56,.95);color:#fff;border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.18);z-index:8;display:none}.tooltip b{display:block;font-size:13px;margin-bottom:4px}.tooltip span{font-size:10px;color:#d8e7eb}
+.legend{position:absolute;bottom:15px;left:15px;max-width:300px;padding:9px 11px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:13px;z-index:3}.legendTitle{font-size:10px;color:var(--muted);margin-bottom:6px}.legendItems{display:flex;flex-wrap:wrap;gap:5px}.legendItem{display:flex;align-items:center;gap:5px;font-size:9px;color:#4f626b}.legendDot{width:10px;height:10px;border-radius:3px;display:inline-block;border:1px solid rgba(0,0,0,.08)}
+.loading{position:absolute;inset:0;display:grid;place-items:center;background:rgba(244,250,249,.82);z-index:7}.loadingBox{padding:18px 22px;border-radius:15px;background:#fff;border:1px solid var(--line);text-align:center;box-shadow:var(--shadow)}.spinner{width:28px;height:28px;border:3px solid #d6e8ec;border-top-color:var(--sea);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 9px}@keyframes spin{to{transform:rotate(360deg)}}
+.empty{position:absolute;inset:0;display:grid;place-items:center;z-index:2}.emptyBox{text-align:center;background:rgba(255,255,255,.72);border:1px dashed #bdd4da;border-radius:18px;padding:25px}.emptyBox .icon{font-size:44px;margin-bottom:10px}.emptyBox b{color:var(--navy);font-size:16px}.emptyBox p{margin:5px 0 0;font-size:11px;color:var(--muted)}
+.status{position:absolute;right:16px;top:16px;z-index:3;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.9);border:1px solid var(--line);font-size:10px;color:var(--muted)}
+@media(max-width:980px){.app{grid-template-columns:330px 1fr}.sidebar{padding:14px}.stats .stat{min-width:74px}.titleBlock h2{font-size:17px}}
+@media(max-width:760px){.app{grid-template-columns:1fr;grid-template-rows:auto 1fr;overflow:auto}.sidebar{order:2;max-height:none;border-top:1px solid var(--line);border-left:0}.stage{min-height:70vh}.topbar{height:auto;padding:12px}.stats{display:none}.mapWrap{margin:0 10px 10px;min-height:60vh}.mapTools{left:10px;top:10px}.sidebar{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brandMark">◈</div>
+      <div><h1>Pixel Map — عُمان</h1><p>مولّد خريطة بكسلية تفاعلية للسلطنة</p></div>
+    </div>
+    <div class="authorCredit">إعداد: أ. عهود العبرية - مدرسة وادي غول للتعليم الأساسي (1-9)</div>
+
+    <section class="card">
+      <div class="cardTitle"><span>الخريطة والإسقاط</span><span class="badge">11 محافظة</span></div>
+      <div class="row">
+        <div class="field"><label>الخريطة</label><select id="mapSelect"><option value="oman">سلطنة عُمان</option></select></div>
+        <div class="field"><label>الإسقاط</label><select id="projection"><option value="geo">جغرافي مبسط</option><option value="mercator">Mercator</option></select></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="cardTitle"><span>إعدادات البكسلات</span></div>
+      <div class="field"><label>الشكل</label>
+        <div class="segment" id="shapeButtons">
+          <button class="segBtn active" data-shape="square">■</button>
+          <button class="segBtn" data-shape="circle">●</button>
+          <button class="segBtn" data-shape="hex">⬢</button>
+          <button class="segBtn" data-shape="diamond">◆</button>
+          <button class="segBtn" data-shape="dot">•</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field"><label>الحجم</label><div class="rangeWrap"><input id="size" type="range" min="2" max="16" value="7"><div class="numberPill"><span id="sizeVal">7</span> px</div></div></div>
+        <div class="field"><label>الفجوة</label><div class="rangeWrap"><input id="gap" type="range" min="0" max="12" value="2"><div class="numberPill"><span id="gapVal">2</span> px</div></div></div>
+      </div>
+      <div class="toggle"><span style="font-size:12px;font-weight:700">مظهر أبيض وأسود</span><label class="switch"><input id="bw" type="checkbox"><span class="slider"></span></label></div>
+      <div class="row" style="margin-top:12px">
+        <div class="field"><label>الخلفية</label><div class="paletteInput"><input id="bgColor" type="color" value="#f7fcfb"><span class="mini" id="bgText">#f7fcfb</span></div></div>
+        <div class="field"><label>التعبئة</label><div class="paletteInput"><input id="fillColor" type="color" value="#137f9d"><span class="mini" id="fillText">#137f9d</span></div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>الحدود</label><div class="paletteInput"><input id="strokeColor" type="color" value="#496a75"><span class="mini" id="strokeText">#496a75</span></div></div>
+        <div class="field"><label>سماكة الحدود</label><div class="rangeWrap"><input id="strokeWidth" type="range" min="0" max="2" step="0.1" value="0.5"><div class="numberPill"><span id="strokeVal">0.5</span></div></div></div>
+      </div>
+      <button id="generate" class="primary">توليد البكسلات</button>
+      <div class="hint">غيّري الشكل والحجم والفجوة ثم اضغطي «توليد البكسلات». الخريطة الناتجة تُبنى داخل حدود المحافظات المحددة.</div>
+    </section>
+
+    <section class="card">
+      <div class="cardTitle"><span>المحافظات</span><span class="badge" id="selectedBadge">11 محددة</span></div>
+      <div class="field"><input id="polyFilter" class="textInput" placeholder="بحث عن محافظة..."></div>
+      <div class="polyTools">
+        <button id="allBtn" class="toolBtn">الكل</button><button id="noneBtn" class="toolBtn">إلغاء الكل</button>
+        <button id="azBtn" class="toolBtn">أ–ي</button><button id="sizeBtn" class="toolBtn">المساحة</button>
+      </div>
+      <div class="polyList" id="polyList"></div>
+    </section>
+
+    <section class="card">
+      <div class="cardTitle"><span>التصدير</span><span class="badge">جاهز</span></div>
+      <div class="exportRow"><button class="exportBtn" id="svgBtn">SVG</button><button class="exportBtn" id="pngBtn">PNG</button><button class="exportBtn" id="htmlBtn">HTML</button></div>
+      <button id="reset" class="resetBtn">↺ إعادة الضبط والإعداد</button>
+      <div class="source">بيانات الحدود: طبقة Oman ADM1 ذات 11 وحدة إدارية من Location Grid Project، مع استخدام الأسماء العربية الموحّدة داخل الواجهة. citeturn724755view0</div>
+    </section>
+  </aside>
+
+  <main class="stage">
+    <div class="topbar">
+      <div class="titleBlock"><h2>سلطنة عُمان</h2><p>خريطة بكسلية تفاعلية للمحافظات والحدود الإدارية</p></div>
+      <div class="stats"><div class="stat"><strong id="statMap">عُمان</strong><span>الخريطة</span></div><div class="stat"><strong id="statPolys">—</strong><span>المحافظات</span></div><div class="stat"><strong id="statPixels">—</strong><span>البكسلات</span></div></div>
+    </div>
+    <div class="mapWrap" id="mapWrap">
+      <div class="mapBg" id="mapBg"></div>
+      <div class="status" id="status">جاري تحميل حدود عُمان…</div>
+      <div class="mapTools"><button class="mapTool" id="zoomIn">+</button><button class="mapTool" id="zoomOut">−</button><button class="mapTool" id="fit">⌂</button></div>
+      <svg id="mapSvg" class="mapCanvas" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet" aria-label="خريطة تفاعلية لسلطنة عمان"></svg>
+      <div class="tooltip" id="tooltip"></div>
+      <div class="legend"><div class="legendTitle">المحافظات المحددة</div><div class="legendItems" id="legendItems"></div></div>
+      <div id="empty" class="empty" style="display:none"><div class="emptyBox"><div class="icon">🗺️</div><b>لا توجد محافظات محددة</b><p>اختاري محافظة واحدة على الأقل ثم اضغطي توليد البكسلات.</p></div></div>
+      <div id="loading" class="loading"><div class="loadingBox"><div class="spinner"></div><div style="font-size:12px;font-weight:800;color:var(--navy)">تحميل حدود المحافظات</div><div style="font-size:10px;color:var(--muted);margin-top:5px">يحتاج الموقع إلى اتصال بالإنترنت عند أول فتح</div></div></div>
+    </div>
+  </main>
+</div>
+<script>
+const GEOJSON_URL = 'https://storage.googleapis.com/location-grid-gis-layers/omn_admin1.geojson';
+const AR_NAMES = {
+  'muscat':'مسقط','muscat governorate':'مسقط','masqat':'مسقط',
+  'dhofar':'ظفار','dhofar governorate':'ظفار','zufar':'ظفار',
+  'musandam':'مسندم','musandam governorate':'مسندم',
+  'al buraimi':'البريمي','al buraymi':'البريمي','al buraymi governorate':'البريمي','al buraimi governorate':'البريمي',
+  'al batinah north':'شمال الباطنة','al batinah north governorate':'شمال الباطنة','al batina north':'شمال الباطنة',
+  'al batinah south':'جنوب الباطنة','al batinah south governorate':'جنوب الباطنة','al batina south':'جنوب الباطنة',
+  'ad dakhliyah':'الداخلية','ad dakhliyah governorate':'الداخلية','ad dakhliya':'الداخلية',
+  'ad dhahirah':'الظاهرة','ad dhahirah governorate':'الظاهرة','al dhahirah':'الظاهرة',
+  'ash sharqiyah north':'شمال الشرقية','ash sharqiyah north governorate':'شمال الشرقية','sharqiyah north':'شمال الشرقية',
+  'ash sharqiyah south':'جنوب الشرقية','ash sharqiyah south governorate':'جنوب الشرقية','sharqiyah south':'جنوب الشرقية',
+  'al wusta':'الوسطى','al wusta governorate':'الوسطى'
+};
+const COLORS = ['#0b5d75','#c88b3a','#ad4f49','#7d6a9e','#287b62','#bf657e','#4a7d9f','#9b6f45','#6e8c52','#5b6b9e','#9a5b83'];
+const state = {geo:null, features:[], selected:new Set(), colors:{}, shape:'square', size:7, gap:2, bw:false, bg:'#f7fcfb', fill:'#137f9d', stroke:'#496a75', strokeWidth:.5, projection:'geo', transform:{x:0,y:0,k:1}, generated:false, pixelCount:0};
+const $=id=>document.getElementById(id);
+function norm(s){return String(s||'').toLowerCase().replace(/[ًٌٍَُِّْ]/g,'').replace(/\s+/g,' ').trim()}
+function arabicName(raw){ const n=norm(raw); if(AR_NAMES[n]) return AR_NAMES[n]; for(const k in AR_NAMES){ if(n.includes(k) || k.includes(n)) return AR_NAMES[k]; } return raw||'غير محدد'; }
+function coords(geom){ if(!geom) return []; return geom.type==='Polygon' ? [geom.coordinates] : geom.coordinates||[]; }
+function allRings(feature){ return coords(feature.geometry).flatMap(p=>p||[]).map(r=>r||[]); }
+function bboxFeature(feature){ let minX=Infinity,minY=Infinity,maxX=-Infinity,maxY=-Infinity; for(const ring of allRings(feature)){ for(const [x,y] of ring){ minX=Math.min(minX,x);minY=Math.min(minY,y);maxX=Math.max(maxX,x);maxY=Math.max(maxY,y); } } return [minX,minY,maxX,maxY]; }
+function bboxAll(fs){ let minX=Infinity,minY=Infinity,maxX=-Infinity,maxY=-Infinity; for(const f of fs){const b=bboxFeature(f);minX=Math.min(minX,b[0]);minY=Math.min(minY,b[1]);maxX=Math.max(maxX,b[2]);maxY=Math.max(maxY,b[3]);} return [minX,minY,maxX,maxY]; }
+function polygonArea(ring){let a=0;for(let i=0,j=ring.length-1;i<ring.length;j=i++){a+=(ring[j][0]*ring[i][1]-ring[i][0]*ring[j][1])}return Math.abs(a/2)}
+function featureSize(f){return allRings(f).reduce((s,r)=>s+polygonArea(r),0)}
+function pointInRing(point,ring){let x=point[0],y=point[1],inside=false;for(let i=0,j=ring.length-1;i<ring.length;j=i++){const xi=ring[i][0],yi=ring[i][1],xj=ring[j][0],yj=ring[j][1];const inter=((yi>y)!==(yj>y))&&(x<((xj-xi)*(y-yi)/(yj-yi)+xi));if(inter)inside=!inside;}return inside}
+function pointInFeature(point,f){const polys=coords(f.geometry);for(const poly of polys){if(!poly.length)continue;if(pointInRing(point,poly[0])){let hole=false;for(let i=1;i<poly.length;i++){if(pointInRing(point,poly[i])){hole=true;break}}if(!hole)return true;}}return false}
+function mapProject(lon,lat,bb){const [minX,minY,maxX,maxY]=bb; const pad=55; const W=1000,H=700; const usableW=W-pad*2, usableH=H-pad*2; const lonMid=(minX+maxX)/2; const cos=Math.cos(lat*Math.PI/180); const x=(lon-lonMid)*cos; const x0=(minX-lonMid)*cos, x1=(maxX-lonMid)*cos; const y=lat; const sx=usableW/(x1-x0); const sy=usableH/(maxY-minY); const s=Math.min(sx,sy); const offX=(W-(x1-x0)*s)/2; const offY=(H-(maxY-minY)*s)/2; return [offX+(x-x0)*s, offY+(maxY-y)*s];}
+function projectInv(x,y,bb){ const [minX,minY,maxX,maxY]=bb; const lonMid=(minX+maxX)/2; const cos=Math.cos(lonMid*Math.PI/180); const pad=55,W=1000,H=700; const x0=(minX-lonMid)*cos,x1=(maxX-lonMid)*cos; const s=Math.min((W-pad*2)/(x1-x0),(H-pad*2)/(maxY-minY)); const offX=(W-(x1-x0)*s)/2,offY=(H-(maxY-minY)*s)/2; const xx=x-offX, yy=y-offY; const lon=lonMid+(xx/s)/cos; const lat=maxY-(yy/s); return [lon,lat]; }
+function projectPoint(lon,lat){return mapProject(lon,lat,bboxAll(state.features))}
+function renderBoundary(){
+  const svg=$('mapSvg'); svg.innerHTML=''; state.pixelCount=0;
+  const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.id='mainLayer';g.setAttribute('transform',`translate(${state.transform.x} ${state.transform.y}) scale(${state.transform.k})`);svg.appendChild(g);
+  const bg=document.createElementNS('http://www.w3.org/2000/svg','rect');bg.setAttribute('x',0);bg.setAttribute('y',0);bg.setAttribute('width',1000);bg.setAttribute('height',700);bg.setAttribute('fill',state.bg);g.appendChild(bg);
+  const selectedFeatures=state.features.filter((_,i)=>state.selected.has(i));
+  if(!selectedFeatures.length){$('empty').style.display='grid';$('status').textContent='لا توجد محافظات محددة';updateStats();return}
+  $('empty').style.display='none';
+  const allGroup=document.createElementNS('http://www.w3.org/2000/svg','g');g.appendChild(allGroup);
+  for(let i=0;i<state.features.length;i++){
+    const f=state.features[i], isSel=state.selected.has(i); const name=arabicName(f.properties?.name||f.properties?.NAME_1||f.properties?.NAME);
+    const d=[]; for(const poly of coords(f.geometry)){for(const ring of poly){let p='';ring.forEach(([lon,lat],idx)=>{const [x,y]=projectPoint(lon,lat);p+=(idx?' L ':'M ')+x.toFixed(2)+' '+y.toFixed(2)});p+=' Z';d.push(p)}}
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',d.join(' '));path.setAttribute('fill',isSel?(state.bw?'#222':(state.colors[i]||state.fill)):'rgba(255,255,255,.5)');path.setAttribute('fill-opacity',isSel?'.08':'.25');path.setAttribute('stroke',state.stroke);path.setAttribute('stroke-width',isSel?Math.max(.5,state.strokeWidth*1.5):state.strokeWidth);path.setAttribute('vector-effect','non-scaling-stroke');path.style.cursor='pointer';path.dataset.index=i;
+    path.addEventListener('mouseenter',()=>showTooltipForFeature(i)); path.addEventListener('mouseleave',hideTooltip); path.addEventListener('click',()=>toggleFeature(i));
+    allGroup.appendChild(path);
+  }
+  const pixelLayer=document.createElementNS('http://www.w3.org/2000/svg','g');pixelLayer.setAttribute('id','pixelLayer');g.appendChild(pixelLayer);
+  if(state.generated) generatePixels(pixelLayer,selectedFeatures);
+  $('status').textContent=state.generated?`تم توليد ${state.pixelCount.toLocaleString('ar-OM')} بكسل`:'الخريطة جاهزة — اضغطي توليد البكسلات';
+  updateStats();
+}
+function makePixel(x,y,size,shape,fill,stroke,sw){
+  let el;
+  const NS='http://www.w3.org/2000/svg';
+  const s=size/2;
+  let d='';
+  if(shape==='dot' || shape==='circle'){
+    el=document.createElementNS(NS,'circle');
+    el.setAttribute('cx',x); el.setAttribute('cy',y);
+    el.setAttribute('r',shape==='dot'?Math.max(1.1,size*.18):s*.82);
+  }else{
+    el=document.createElementNS(NS,'path');
+    if(shape==='square') d=`M ${x-s} ${y-s} h ${size} v ${size} h -${size} Z`;
+    else if(shape==='diamond') d=`M ${x} ${y-s} L ${x+s} ${y} L ${x} ${y+s} L ${x-s} ${y} Z`;
+    else if(shape==='hex'){
+      const a=size*.5,b=size*.433;
+      d=`M ${x-a} ${y} L ${x-a/2} ${y-b} L ${x+a/2} ${y-b} L ${x+a} ${y} L ${x+a/2} ${y+b} L ${x-a/2} ${y+b} Z`;
+    }else d=`M ${x-s} ${y} L ${x} ${y-s} L ${x+s} ${y} L ${x} ${y+s} Z`;
+    el.setAttribute('d',d);
+  }
+  el.setAttribute('fill',fill);
+  el.setAttribute('stroke',stroke);
+  el.setAttribute('stroke-width',sw);
+  el.setAttribute('vector-effect','non-scaling-stroke');
+  return el;
+}
+function generatePixels(layer,selectedFeatures){
+  const step=Math.max(2,state.size+state.gap); const bb=bboxAll(state.features); const W=1000,H=700; const start=20; let count=0; const byName={};
+  for(let y=start;y<H;y+=step){ for(let x=start;x<W;x+=step){ const [lon,lat]=projectInv(x,y,bb); let idx=-1; for(let j=0;j<selectedFeatures.length;j++){const globalIndex=state.features.indexOf(selectedFeatures[j]); if(pointInFeature([lon,lat],selectedFeatures[j])){idx=globalIndex;break;}} if(idx<0)continue; const fill=state.bw?'#222':(state.colors[idx]||state.fill);const p=makePixel(x,y,state.size,state.shape,fill,state.stroke,state.strokeWidth);p.setAttribute('data-feature',idx);layer.appendChild(p);count++;byName[idx]=(byName[idx]||0)+1; }}
+  state.pixelCount=count; window.__pixelByFeature=byName;
+}
+function showTooltipForFeature(i){const f=state.features[i];const name=arabicName(f.properties?.name||f.properties?.NAME_1||f.properties?.NAME);const px=window.__pixelByFeature?.[i]||0;const t=$('tooltip');t.innerHTML=`<b>${name}</b><span>${px.toLocaleString('ar-OM')} بكسل · اضغطي لتحديد/إلغاء التحديد</span>`;t.style.display='block';t.style.right='18px';t.style.top='70px'}
+function hideTooltip(){$('tooltip').style.display='none'}
+function toggleFeature(i){ if(state.selected.has(i))state.selected.delete(i); else state.selected.add(i);state.generated=false;renderBoundary();renderPolyList();updateLegend(); }
+function renderPolyList(sortMode='az'){const list=$('polyList');const q=norm($('polyFilter').value);list.innerHTML='';state.features.map((f,i)=>({f,i,n:arabicName(f.properties?.name||f.properties?.NAME_1||f.properties?.NAME),size:featureSize(f)})).filter(o=>norm(o.n).includes(q)).sort((a,b)=>sortMode==='size'?(b.size-a.size):a.n.localeCompare(b.n,'ar')).forEach(o=>{const row=document.createElement('div');row.className='polyItem';const label=document.createElement('label');const cb=document.createElement('input');cb.type='checkbox';cb.checked=state.selected.has(o.i);cb.addEventListener('change',()=>{if(cb.checked)state.selected.add(o.i);else state.selected.delete(o.i);state.generated=false;renderBoundary();renderPolyList();updateLegend()});label.append(cb);const span=document.createElement('span');span.className='polyName';span.textContent=o.n;label.append(span);const cwrap=document.createElement('div');cwrap.className='polyColor';const ci=document.createElement('input');ci.type='color';ci.value=state.colors[o.i]||COLORS[o.i%COLORS.length];ci.title='تغيير لون المحافظة';ci.addEventListener('input',e=>{state.colors[o.i]=e.target.value;state.generated=false;renderBoundary();updateLegend()});cwrap.append(ci);row.append(label,cwrap);list.append(row)});$('selectedBadge').textContent=`${state.selected.size} محددة`;}
+function updateLegend(){const box=$('legendItems');box.innerHTML='';state.features.forEach((f,i)=>{if(!state.selected.has(i))return;const item=document.createElement('div');item.className='legendItem';const dot=document.createElement('span');dot.className='legendDot';dot.style.background=state.bw?'#222':(state.colors[i]||COLORS[i%COLORS.length]);item.append(dot,document.createTextNode(arabicName(f.properties?.name||f.properties?.NAME_1||f.properties?.NAME)));box.append(item)});}
+function updateStats(){$('statPolys').textContent=state.selected.size.toLocaleString('ar-OM');$('statPixels').textContent=state.pixelCount.toLocaleString('ar-OM');$('selectedBadge').textContent=`${state.selected.size} محددة`;}
+function fitView(){state.transform={x:0,y:0,k:1};renderBoundary()}
+function exportSVG(){const svg=$('mapSvg');const clone=svg.cloneNode(true);clone.querySelectorAll('.status,.tooltip').forEach(x=>x.remove());const src=new XMLSerializer().serializeToString(clone);downloadBlob(new Blob([`<?xml version="1.0" encoding="UTF-8"?>${src}`],{type:'image/svg+xml;charset=utf-8'}),'oman-pixel-map.svg')}
+function exportPNG(){const svg=$('mapSvg');const src=new XMLSerializer().serializeToString(svg);const blob=new Blob([src],{type:'image/svg+xml;charset=utf-8'});const url=URL.createObjectURL(blob);const img=new Image();img.onload=()=>{const c=document.createElement('canvas');c.width=2000;c.height=1400;const ctx=c.getContext('2d');ctx.fillStyle=state.bg;ctx.fillRect(0,0,c.width,c.height);ctx.drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(url);c.toBlob(b=>downloadBlob(b,'oman-pixel-map.png'),'image/png')};img.src=url;}
+function exportHTML(){const html='<!doctype html>\n'+document.documentElement.outerHTML;downloadBlob(new Blob([html],{type:'text/html;charset=utf-8'}),'oman-pixel-map.html')}
+function downloadBlob(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000)}
+async function loadGeo(){try{const r=await fetch(GEOJSON_URL,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);state.geo=await r.json();state.features=state.geo.features||[];state.features.forEach((f,i)=>{state.colors[i]=COLORS[i%COLORS.length]});state.selected=new Set(state.features.map((_,i)=>i));$('loading').style.display='none';renderPolyList();updateLegend();renderBoundary();}catch(e){$('loading').innerHTML='<div class="loadingBox"><div style="font-size:28px;margin-bottom:8px">⚠️</div><div style="font-size:13px;font-weight:800;color:var(--navy)">تعذّر تحميل حدود عُمان</div><div style="font-size:10px;color:var(--muted);line-height:1.7;margin-top:6px">تأكدي من فتح الموقع عبر GitHub Pages أو خادم ويب، وليس مباشرةً من file://، وأن الاتصال بالإنترنت متاح.</div><button class="resetBtn" style="margin-top:12px" onclick="location.reload()">إعادة المحاولة</button></div>';}}
+function bind(){
+ $('size').addEventListener('input',e=>{$('sizeVal').textContent=e.target.value;state.size=+e.target.value});$('gap').addEventListener('input',e=>{$('gapVal').textContent=e.target.value;state.gap=+e.target.value});$('strokeWidth').addEventListener('input',e=>{$('strokeVal').textContent=e.target.value;state.strokeWidth=+e.target.value});
+ [['bgColor','bg','bgText'],['fillColor','fill','fillText'],['strokeColor','stroke','strokeText']].forEach(([id,key,txt])=>$(id).addEventListener('input',e=>{state[key]=e.target.value;$(txt).textContent=e.target.value;$('mapBg').style.backgroundColor=state.bg;renderBoundary()}));
+ $('bw').addEventListener('change',e=>{state.bw=e.target.checked;renderBoundary()});$('projection').addEventListener('change',e=>{state.projection=e.target.value;renderBoundary()});
+ document.querySelectorAll('.segBtn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.segBtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');state.shape=b.dataset.shape}));
+ $('generate').addEventListener('click',()=>{state.generated=true;renderBoundary()});$('polyFilter').addEventListener('input',renderPolyList);$('azBtn').addEventListener('click',()=>{renderPolyList('az')});$('sizeBtn').addEventListener('click',()=>{renderPolyList('size')});$('allBtn').addEventListener('click',()=>{state.selected=new Set(state.features.map((_,i)=>i));state.generated=false;renderPolyList();renderBoundary();updateLegend()});$('noneBtn').addEventListener('click',()=>{state.selected.clear();state.generated=false;renderPolyList();renderBoundary();updateLegend()});
+ $('svgBtn').addEventListener('click',exportSVG);$('pngBtn').addEventListener('click',exportPNG);$('htmlBtn').addEventListener('click',exportHTML);$('reset').addEventListener('click',()=>location.reload());
+ $('zoomIn').addEventListener('click',()=>{state.transform.k=Math.min(4,state.transform.k*1.25);renderBoundary()});$('zoomOut').addEventListener('click',()=>{state.transform.k=Math.max(.65,state.transform.k/1.25);renderBoundary()});$('fit').addEventListener('click',fitView);
+ const wrap=$('mapWrap'),svg=$('mapSvg');let drag=false,px=0,py=0;svg.addEventListener('pointerdown',e=>{drag=true;px=e.clientX;py=e.clientY;svg.classList.add('dragging');svg.setPointerCapture(e.pointerId)});svg.addEventListener('pointermove',e=>{if(!drag)return;state.transform.x+=(e.clientX-px);state.transform.y+=(e.clientY-py);px=e.clientX;py=e.clientY;const layer=$('mainLayer');if(layer)layer.setAttribute('transform',`translate(${state.transform.x} ${state.transform.y}) scale(${state.transform.k})`)});svg.addEventListener('pointerup',()=>{drag=false;svg.classList.remove('dragging')});wrap.addEventListener('wheel',e=>{e.preventDefault();state.transform.k=Math.max(.65,Math.min(4,state.transform.k*(e.deltaY<0?1.1:.9)));renderBoundary()},{passive:false});
+}
+bind();loadGeo();
+</script>
+</body>
+</html>
